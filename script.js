@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Your code here
-
     // Define the number of boxes and buttons per box
-
     var numBoxes = 9;
     var numButtons = 9;
 let flag = "X"
@@ -48,32 +46,30 @@ function clicking(){
     buttons.forEach(function (button) {
         button.addEventListener('click', function () {
          if(flag == "X"){
-            button.textContent = flag;
+            
+            if(button.textContent ===""){
+                button.textContent = flag;
             flag = "O";
             let parentBox = button.parentElement;
             checkInBox(parentBox);
          setTimeout(function(){
-            reVisible(parentBox,button.id)
-
-            
+            reVisible(parentBox,button.id);
             restrictOtherBox(parentBox,button.id);
          },500);
-
-          
+            }
          }
          else{
+           if(button.textContent ===""){
             let parentBox = button.parentElement;
             button.textContent = flag;
             flag = "X";
             checkInBox(parentBox);
-
             setTimeout(function(){
-                reVisible(parentBox,button.id)
-    
-                
+            reVisible(parentBox,button.id);
                 restrictOtherBox(parentBox,button.id);
              },500);
 
+           }
       
            
          }
